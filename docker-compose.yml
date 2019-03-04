@@ -1,0 +1,10 @@
+version: '2'
+services:
+  pagekit:
+    image: derixithy/pagekit
+    ports:
+        - "8080:80"
+    volumes:
+        - ~/pagekit/storage:/pagekit/storage
+        - ~/pagekit/cache:/pagekit/app/cache
+        - ~/pagekit/config.php:/pagekit/config.php
