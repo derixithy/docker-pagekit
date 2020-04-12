@@ -6,7 +6,7 @@ RUN apt-get update && \
     unzip \
     wget \
     ca-certificates \
-    php7.2 php7.2-fpm php7.2-cli php7.2-json php7.2-mysql php7.2-curl
+    php7.2 php7.2-fpm php7.2-cli php7.2-json php7.2-mysql php7.2-curl php-7.2-zip php7.2-dom php7.2-simplexml 
 
 ENV PAGEKIT_VERSION 1.0.18
 RUN mkdir /pagekit
@@ -14,7 +14,7 @@ WORKDIR /pagekit
 VOLUME ["/pagekit/storage", "/pagekit/app/cache"]
 
 RUN wget https://github.com/pagekit/pagekit/releases/download/$PAGEKIT_VERSION/pagekit-$PAGEKIT_VERSION.zip -O /pagekit/pagekit.zip && \
-    unzip /pagekit/pagekit.zip -d /pagekit && rm /pagekit/pagekit.zip
+    unzip /pagekit/pagekit.zip -d /pagekit
 
 ADD nginx.conf /etc/nginx/nginx.conf
 
