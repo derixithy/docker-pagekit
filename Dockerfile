@@ -14,7 +14,7 @@ WORKDIR /pagekit
 VOLUME ["/pagekit/storage", "/pagekit/app/cache"]
 
 RUN wget https://github.com/pagekit/pagekit/releases/download/$PAGEKIT_VERSION/pagekit-$PAGEKIT_VERSION.zip -O /pagekit/pagekit.zip && \
-    unzip /pagekit/pagekit.zip && rm /pagekit/pagekit.zip
+    unzip /pagekit/pagekit.zip -d /pagekit && rm /pagekit/pagekit.zip
 
 ADD nginx.conf /etc/nginx/nginx.conf
 
