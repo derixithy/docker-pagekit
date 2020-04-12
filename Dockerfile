@@ -1,5 +1,4 @@
-FROM ubuntu:trusty
-MAINTAINER ZuoLan <i@zuolan.me>
+FROM ubuntu:18.04
 
 RUN apt-get update && \
     apt-get -y install \
@@ -7,9 +6,9 @@ RUN apt-get update && \
     unzip \
     wget \
     ca-certificates \
-    php5 php5-fpm php5-cli php5-json php5-mysql php5-curl
+    php7.2 php7.2-fpm php7.2-cli php7.2-json php7.2-mysql php7.2-curl
 
-ENV PAGEKIT_VERSION 1.0.16
+ENV PAGEKIT_VERSION 1.0.18
 RUN mkdir /pagekit
 WORKDIR /pagekit
 VOLUME ["/pagekit/storage", "/pagekit/app/cache"]
@@ -25,4 +24,4 @@ RUN chown -R www-data: /pagekit && \
     apt-get clean -y && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-CMD ["sh", "-c", "service php5-fpm start && nginx"]
+CMD ["sh", "-c", "service php7.2-fpm start && nginx"]
