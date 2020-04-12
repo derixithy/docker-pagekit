@@ -25,3 +25,6 @@ RUN chown -R www-data: /pagekit && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 CMD ["sh", "-c", "service php7.2-fpm start && nginx"]
+
+EXPOSE 80/tcp
+EXPOSE 80/udp
